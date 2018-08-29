@@ -296,7 +296,13 @@ void receivepacket() {
             printf("RSSI: %d, ",readRegister(0x1B)-rssicorr);
             printf("SNR: %li, ",SNR);
             printf("Length: %i",(int)receivedbytes);
-            printf("\n");
+            printf(" ");
+//tiskni cas
+	time_t  t = time(NULL);
+	struct tm *tm = localtime(&t);
+	printf("%s\n", asctime(tm));
+
+
 
 //tady jsem smazal celou cast tvorby datagramu  pro odeslani pres UDP
 
