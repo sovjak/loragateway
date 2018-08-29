@@ -5,16 +5,13 @@ CC=g++
 CFLAGS=-c -Wall
 LIBS=-lwiringPi
 
-all: single_chan_pkt_fwd
+all: loragateway
 
-single_chan_pkt_fwd: base64.o main.o
-	$(CC) main.o base64.o $(LIBS) -o single_chan_pkt_fwd
+loragateway: main.o
+	$(CC) main.o $(LIBS) -o loragateway
 
 main.o: main.cpp
 	$(CC) $(CFLAGS) main.cpp
 
-base64.o: base64.c
-	$(CC) $(CFLAGS) base64.c
-
 clean:
-	rm *.o single_chan_pkt_fwd	
+	rm *.o loragateway	
