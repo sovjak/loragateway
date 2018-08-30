@@ -211,8 +211,9 @@ boolean receivePkt(char *payload)
         receivedbytes = receivedCount;
 
         writeRegister(REG_FIFO_ADDR_PTR, currentAddr);
-
+//	printf("\033[1;31m");  //esc pro cervenou barvu
 	printf("payload:");
+//	printf("\033[0m;");    //esc pro beznou barvu
         for(int i = 0; i < receivedCount; i++)
         {
             payload[i] = (char)readRegister(REG_FIFO);
@@ -300,7 +301,7 @@ void receivepacket() {
 //tiskni cas
 	time_t  t = time(NULL);
 	struct tm *tm = localtime(&t);
-	printf("%s\n", asctime(tm));
+	printf("%s", asctime(tm));
 
 
 
